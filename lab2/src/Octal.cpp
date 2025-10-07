@@ -73,7 +73,8 @@ Octal::~Octal() noexcept {
 
 Octal Octal::add(const Octal& other) const {
     size_t maxSize = std::max(size, other.size);
-    unsigned char* result = new unsigned char[maxSize + 1]{0};
+    size_t resultSize = maxSize + 1;
+    unsigned char* result = new unsigned char[resultSize]{0};
     unsigned char carry = 0;
     
     for (size_t i = 0; i < maxSize || carry; ++i) {
@@ -84,9 +85,6 @@ Octal Octal::add(const Octal& other) const {
         result[i] = sum % 8;
         carry = sum / 8;
     }
-    
-    size_t resultSize = maxSize;
-    if (carry) resultSize++;
     
     Octal res;
     delete[] res.digits;
