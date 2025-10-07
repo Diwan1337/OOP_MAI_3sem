@@ -22,14 +22,19 @@ lab1/
 ```powershell
 mkdir build
 cd build
-cmake .. -G "Visual Studio 16 2019" -A x64 -DCMAKE_TOOLCHAIN_FILE="E:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake"
-cmake --build . --config Debug
-ctest -C Debug
+cmake .. 
+cmake --build . 
 ```
 
 ## Запуск программы
+## Запуск программы
+```
+ctest -C Debug --verbose
+```
+Или
 ```powershell
-.uild\Debug\lab1.exe
+.\Debug\lab1_tests.exe
+.\Debug\lab1.exe
 ```
 **Пример:**
 ```
